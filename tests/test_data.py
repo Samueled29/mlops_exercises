@@ -2,6 +2,7 @@ import torch
 
 from my_project.data import corrupt_mnist
 
+@pytest.mark.skipif(not os.path.exists(DATA_PATH), reason="Data files not found")
 def test_data():
     train, test = corrupt_mnist()
     assert len(train) == 30000
