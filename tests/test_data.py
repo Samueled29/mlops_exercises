@@ -5,6 +5,8 @@ import os
 
 from my_project.data import corrupt_mnist
 
+DATA_PATH = os.path.join(os.path.dirname(__file__), "../data/processed")
+
 @pytest.mark.skipif(not os.path.exists(DATA_PATH), reason="Data files not found")
 def test_data():
     train, test = corrupt_mnist()
