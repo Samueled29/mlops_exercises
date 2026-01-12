@@ -33,3 +33,8 @@ select = ["I", "N", "E", "W", ]
 
 [tool.coverage.run]
 omit = ["tests/*"]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
