@@ -2,31 +2,31 @@ name: "Run tests"
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ main, master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v5
 
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: 3.12
+        cache: 'pip'  
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install -r requirements_tests.txt
-        pip list
+        if [ -f requirements_dev.txt ]; then pip install -r requirements_dev.txt; fi
+        python -m pip list  # debug, mostra i pacchetti installati
 
-    - name: Test with pytest
+    - name: Run tests with pytest
       run: |
         python -m pytest -v
