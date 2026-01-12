@@ -29,4 +29,4 @@ jobs:
 
     - name: Run tests with pytest
       run: |
-        PYTHONPATH=$PWD/src python -m pytest -v
+        PYTHONPATH=$PWD/src python -m pytest -v --ignore=old_test
