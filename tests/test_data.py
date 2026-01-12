@@ -1,4 +1,6 @@
 import torch
+import pytest
+
 
 from my_project.data import corrupt_mnist
 
