@@ -1,9 +1,11 @@
 import pytest
 import torch
+import os
 from my_project.train import train
 from my_project.model import MyAwesomeModel
 from my_project.data import corrupt_mnist
 from torch.utils.data import TensorDataset
+
 
 
 def test_training_runs_without_errors(tmp_path, monkeypatch):

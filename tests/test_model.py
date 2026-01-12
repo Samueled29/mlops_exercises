@@ -1,5 +1,6 @@
 import torch
 import pytest
+import os
 
 from my_project.model import MyAwesomeModel
 
